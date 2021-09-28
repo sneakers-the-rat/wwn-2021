@@ -51,30 +51,30 @@ const toc_slides = [
     slides: slides_intro,
     notes: notes_intro
   },
-  {
-    name: 'data',
-    display: 'Shared Data',
-    slides: slides_p2p,
-    notes: notes_p2p
-  },
-  {
-    name: 'tools',
-    display: 'Shared Tools',
-    slides: slides_tools,
-    notes: notes_tools
-  },
-  {
-    name: 'knowledge',
-    display: 'Shared Knowledge',
-    slides: slides_knowledge,
-    notes: notes_knowledge
-  },
-  {
-    name: 'outro',
-    display: 'Outro',
-    slides: slides_conclusion,
-    notes: notes_conclusion
-  },
+  // {
+  //   name: 'data',
+  //   display: 'Shared Data',
+  //   slides: slides_p2p,
+  //   notes: notes_p2p
+  // },
+  // {
+  //   name: 'tools',
+  //   display: 'Shared Tools',
+  //   slides: slides_tools,
+  //   notes: notes_tools
+  // },
+  // {
+  //   name: 'knowledge',
+  //   display: 'Shared Knowledge',
+  //   slides: slides_knowledge,
+  //   notes: notes_knowledge
+  // },
+  // {
+  //   name: 'outro',
+  //   display: 'Outro',
+  //   slides: slides_conclusion,
+  //   notes: notes_conclusion
+  // },
 ]
 
 const toc_slides_flat = Array.prototype.concat(...toc_slides.map((slide_group) => (
