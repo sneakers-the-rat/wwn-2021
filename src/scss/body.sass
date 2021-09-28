@@ -1,0 +1,82 @@
+body
+  font:
+    family: "Helvetica Neue", Helvetica, Arial, sans-serif
+
+//ul:not(.peer-window)
+//  list-style: none
+//  margin-left: 0
+//  padding-left: 0
+//  li
+//    //padding-left: 1em
+//    //text-indent: -1em
+//
+//    &:before
+//      content: "»"
+//      padding-right: 0.5em
+
+img
+  object-fit: scale-down
+  display: block
+
+svg
+  ul
+    ul
+      font:
+        size: 0.75rem
+      line:
+        height: 0.5
+
+.positioned-card
+  position: absolute
+  //background-color: rgba(255, 255, 255, 0.1)
+  filter: drop-shadow(0 0 20px #ffffff)
+
+  *.noshadow
+
+
+
+
+.basic-card-root
+  filter: drop-shadow(0 0 5px #ffffff) drop-shadow(0 0 10px #ffffff)
+
+  h2
+    backdrop-filter: blur(10px)
+    //font:
+    //  family: 'EB Garamond', serif
+    //  size: 4em
+    //  weight: 600
+    line-height: 1.1
+    padding-bottom: 0.4em
+    margin-bottom: 0.1em
+
+  & *:not(p)
+    //filter: drop-shadow(0 0 5px #ffffff)
+
+
+.iframe-component
+
+
+.basic-card-content
+  //backdrop-filter: blur(10px)
+
+#federation-1
+  transform-origin: center
+
+.step-placeholder[data-step-id="meatballappear"] + div
+  height: 100%
+
+#codebox
+  pre
+    width: 100% !important
+
+#root > div
+  overflow: visible !important
+
+
+div.blankslide
+  background-color: #111111
+  height: 100%
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0

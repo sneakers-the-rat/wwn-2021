@@ -1,0 +1,227 @@
+import SvgAnimator from '../components/svg_animator';
+import TitleCard from '../img/overview.svg';
+import anime from 'animejs';
+
+<SvgAnimator
+    svgUrl={TitleCard}
+    steps={[
+      [
+        {targets:'#computers-2 [style*="stroke:#ed1c24"]',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          duration: anime.random(3000, 5000),
+          direction: 'alternate',
+          delay: anime.random(0, 1000),
+          easing: 'easeInOutCirc',
+          loop: true
+        },
+        {
+          targets: '#computers-2 '+'#Layer_6 [style*="stroke-width:0.5px"]',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          duration: anime.random(500, 1000),
+          delay: function(el){
+            let dist = distance(el.getBBox(), {x:1306, y:716})*5;
+            console.log('dist', dist);
+            return dist;
+          },
+          direction:'alternate',
+          easing: 'easeInOutCirc',
+          loop: true
+        },
+        {
+          targets: '#computers-2 '+'#Layer_3 [style*="stroke-width:0.5px"]',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          duration: anime.random(3000, 5000),
+          delay: function(el){
+            let dist = distance(el.getBBox(), {x:1257, y:308})*3;
+            console.log('dist', dist);
+            return dist;
+          },
+          direction: 'alternate',
+          easing: 'easeInOutCirc',
+          loop: true
+        },
+        {
+          targets: '#computers-2 '+'#Layer_3 [style*="stroke-width:2px"]',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          strokeDasharray: [100, 5],
+          duration: anime.random(3000, 5000),
+          delay: function(el){
+            let dist = distance(el.getBBox(), {x:1257, y:308})*3;
+            console.log('dist', dist);
+            return dist;
+          },
+          direction: 'alternate',
+          easing: 'linear',
+          loop: true
+        },
+        {
+          targets: '#computers-2 '+'#Layer_5 *',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          duration: anime.random(3000, 5000),
+          delay: function(el){
+            let dist = distance(el.getBBox(), {x:1185, y:715})*3;
+            console.log('dist', dist);
+            return dist;
+          },
+          easing: 'easeInOutQuad',
+          loop: true,
+          direction: 'alternate'
+        }
+      ]]}
+    id={'computers-2'}
+/>
+
+---
+# Interdependent Frontends Are Cool, But...
+
+We're familiar with extremely sick, domain-specific databases like this one from the IBL:
+
+Notes: dont render this
+<Box width={"80%"} height={"80%"} margin={"auto"}>
+  <Paper elevation={1} style={{width:"100%", height:"100%"}}>
+    <iframe width={"100%"} height={"100%"}  loading={"lazy"}
+            src={"https://data.internationalbrainlab.org/mouse/00778394-c956-408d-8a6c-ca3b05a611d5"}
+    />
+  </Paper>
+</Box>
+
+---
+
+
+
+---
+
+
+# Lessons from piracy...
+
+<Grid gridTemplateColumns={"2fr 1fr"} height={"100%"}>
+  <Box width={"100%"}>
+    <Text>You need some way of finding torrents!</Text>
+    <Text>So there are these trackers, u might be familiar with this 1</Text>
+    <br/><br/>
+    <Appear stepIndex={2}>
+      <Heading fontSize={'h2'}>Enter Private Trackers:</Heading>
+      <Text marginTop={'26px'}>Interview in or invite-only, each tracker has its own culture, rules,
+        history, and specific tools that facilitate it.</Text>
+      <br/><br/>
+      <Text>Separating the interface from the protocol made space for what is now a
+        decadeslong experiment in decentralized archivalism</Text>
+      <Text fontSize={26} fontStyle={"italic"}>(we will return to them later!)</Text></Appear>
+  </Box>
+  <Appear stepIndex={1}><Image src={PirateBay} maxWidth={"100%"} alignSelf={"center"} /></Appear>
+</Grid>
+
+<Appear stepIndex={3}>
+  <Card style={{marginBottom:"auto"}} elevation={1}>
+    <Heading fontSize={"h2"}>Problem tho:</Heading>
+    <Text style={{padding:"1em"}}>If we have a bunch of different sites, how is that any better than having a zillion centralized databases?</Text></Card></Appear>
+
+---
+
+# Federated systems
+
+<Grid gridTemplateColumns={"1fr 1fr"} height={"100%"}>
+  <Card>
+    <Typography>basic idea here is that we</Typography>
+    <Text>a) conceptualize our data storage system as a *sharing* system first</Text>
+    <Text>b) choose the other *users* and *servers* we want to federate with</Text>
+    <Text>c) federations operate on a common protocol that allows communication between instances</Text>
+    <Text>d) but each user/instance/etc. retains <strong>design autonomy</strong> -- share the *data* not the design</Text>
+  </Card>
+
+  <Image src={Federation}/>
+</Grid>
+
+---
+
+# Eg. "The Fediverse"
+
+Built on W3C's "ActivityPub" protocol, an interconnected network of autonomous social media networks
+
+
+<Box width={"80%"} height={"80%"} margin={"auto"}>
+  <Paper elevation={1} style={{width:"100%", height:"100%"}}>
+    <iframe width={"100%"} height={"100%"} loading={"lazy"}
+            src={"https://google.com"}
+    />
+  </Paper>
+</Box>
+
+
+---
+
+# Federated database systems
+
+Not a new idea!
+
+<Grid gridTemplateColumns={"1fr 1fr"} height={"80%"}>
+  <Image maxWidth={"80%"} maxHeight={"80%"} src={FederatedStack}/>
+  <Image maxWidth={"80%"} maxHeight={"80%"} src={FederatedLinks}/>
+  <Box>
+    <Text>Sima AC et al,</Text>
+    <Link href={"https://doi.org/10.1093/database/baz106"}>Enabling semantic queries across federated bioinformatics databases</Link></Box>
+</Grid>
+
+---
+
+# Why is it like this
+
+(Combine this with previous slide, saying 'if we build it they will come' is one of the reasons. then slim down into 'cultural incentives', 'professional structure, etc.)
+
+the field of infra proposals is littered with the corpses of previous attempts
+why did they fail and what can we do differently?
+
+<Box margin={"auto"} marginTop={"2em"} width={"65%"}>
+  <VerticalLinearStepper
+      steps={[
+        {
+          title: 'Diversity of measurements & preps',
+          body: '',
+        },
+        {
+          title: 'The Hacker Spirit & Celebration of Heroism',
+          body: 'Heterogeneity is good! its just the hero part thats the problem!',
+        },
+        {
+          title: 'Focus on The Science At Hand',
+          body: 'Scientists dont think of themselves as infrastructuralists, they think of themselves as *scientists*',
+        },
+        {
+          title: 'Combinatorics of Recent Technology',
+          body: 'Some of this stuff just started existing!!!',
+        },
+        {
+          title: 'Dispersion of Structural Incentives',
+          body: 'next slide... how does infrastructure get done???',
+        },
+      ]}
+  />
+</Box>
+
+---
+
+
+# Federated P2P & Modular Analysis
+
+* Replicability -- having a clearly reproducible analysis pipline is good
+in itself, but when the data sharing system is also designed
+such that someone doesn't need to set up a whole ass database,
+figure out how to get queries, it's even more dope.
+* Inspectability - "never roll yr own crypto" but ppl roll their own
+analysis all day long. examples of bugs
+* Scientific Consensus - giving a language to ongoing comparisons and
+debates in the field literally in their implementation allows
+us to more plainly see the diversity of opinion and results --
+what if you could apply an analysis method to an entire body of
+previously collected data? or two? This could decouple a paper from its analysis
+* A Global F@H - At the point when everyone is connected
+and volunteering a million tiny servers, it would be possible to
+build a global folding@home with idle computing time datajoint
+elements says as much in their paper (screenshot)
+
+<div style={{zIndex: -1}}>
+  <iframe loading={"lazy"}
+          src="https://player.vimeo.com/video/543747956?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+          frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen
+          style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}} title="hell_naw.mp4"></iframe>
+</div><script src="https://player.vimeo.com/api/player.js"></script>

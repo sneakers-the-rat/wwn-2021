@@ -1,0 +1,459 @@
+import { Heading, Box, Text, Image, Grid, Appear } from 'spectacle'
+import Paper from '@material-ui/core/Paper'
+import CanvasDraw from "react-canvas-draw";
+import VerticalLinearStepper from '../components/vertical_stepper'
+import ExptRequirements from '../img/task_requirements_2.png'
+import Parallax from '../img/plax-01.svg'
+import Overview from '../img/overview-01.svg'
+import Analysis1 from '../img/analysis_1-01.svg'
+import anime from 'animejs'
+import SvgAnimator from '../components/svg_animator';
+import {PositionedHeading, Collapser} from '../components/basic';
+import {PositionedCard} from '../components/basiccard';
+import AutopilotLogo from '../img/autopilot_logo_banner.svg';
+import TextAnimator from '../components/text/TextAnimator';
+import { distance } from '../components/utils';
+import Popup from '../components/popup';
+import Datajoint from '../components/fragments/datajoint';
+
+<SvgAnimator
+    svgUrl={Overview}
+    steps={[
+      [
+        {targets:'#rect-data',
+          fill:["#2f0987", "#333333"],
+        easing:"easeInOutQuad",
+        duration: 500},
+        {targets:"#overview-1 #data *",
+          stroke: ["#2f0987", "#333333"],
+          easing:"easeInOutQuad"
+        },
+        {targets:'#rect-tools',
+          width:[0,750]},
+        {targets:"#overview-1 #tools *",
+          strokeDashoffset: [anime.setDashoffset, 0]
+        },
+        {targets:'#rect-knowledge',
+          opacity:[0,0]},
+        {targets:"#overview-1 #knowledge *",
+          opacity: [0,0]
+        }
+      ]
+    ]}
+    id={'overview-1'}
+/>
+
+
+<PositionedHeading
+    id={'overview-data'} y={25} x={40} fontSize={50} fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={'italic'}>
+  Semantic Wikis, <br/> Communication & <br/> Governance
+</PositionedHeading>
+
+<PositionedHeading id={'overview-knowledge'} y={250} x={40} fontWeight={700}>
+  Knowledge
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data'} y={390} x={40} fontSize={50} fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={'italic'}>
+  Analytical & <br/> Experimental <br/> Frameworks
+</PositionedHeading>
+
+
+<PositionedHeading id={'overview-tools'} y={620} x={40} fontWeight={700}>
+  Tools
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data'} y={750} x={40} fontSize={50} fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={'italic'}>
+  Peer-To-Peer<br/>Federated Databases
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data'} y={970} x={40} fontWeight={700}>
+  Data
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data-label'} x={1000} y={600} light={false} fontSize={40}>
+  Universal Data Sharing
+</PositionedHeading>
+
+Notes: placeholder
+
+- Analysis and Tools are on either side of the data, input and output
+- no time to go into great detail here, so focus on lessons for how people should approach tools
+and comparison to current practice
+
+
+---
+
+<SvgAnimator
+    svgUrl={Analysis1}
+    steps={[
+      [
+        {targets:'#analysis-1 #scribble>path',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          duration: 2000,
+          delay: 0,
+          easing: 'easeInOutCirc'},
+        {targets: "#analysis-1 #scribble #analysis *",
+        opacity:[0,1],
+        duration: 1000,
+          delay: 1000,
+          easing: 'easeInOutQuad'
+        },
+        {targets:'#analysis-1 #scribble>polygon',
+          width: [0, 1],
+          duration: 500,
+          delay: 0,
+          easing: 'easeInOutCirc'}
+      ],
+        [
+      {targets: "#analysis-1 #scribble #analysis *",
+        opacity:[1,0],
+        duration: 500,
+        easing: 'easeInOutQuad'
+      },
+          {targets:'#analysis-1 #scribble>path',
+          strokeDashoffset: [0, anime.setDashoffset],
+          duration: 500,
+          delay: 0,
+          easing: 'easeInOutCirc'},
+      {targets:'#analysis-1 #modules *',
+        strokeDashoffset: {
+          value:[anime.setDashoffset, 0],
+          duration: anime.random(500,1000),
+          delay: anime.random(500,1500),
+          easing: 'easeInOutCirc'
+        },
+        opacity: {
+          value: [0, 1],
+          delay:500,
+          duration: 500,
+          easing: 'easeInOutQuad'
+        }
+        },
+          {targets:'#analysis-1 #module *',
+            strokeDashoffset: {
+              value:[anime.setDashoffset, 0],
+              duration: anime.random(500,1000),
+              delay: anime.random(500,1500),
+              easing: 'easeInOutCirc'
+            },
+            opacity: {
+              value: [0, 1],
+              delay:500,
+              duration: 500,
+              easing: 'easeInOutQuad'
+            }},
+          {
+            targets: "#analysis-modular-card",
+            opacity: [0,1],
+            easing: 'easeInOutQuad',
+            duration:500
+          }
+            ],
+        [
+            {targets:'#analysis-1 #params *',
+          strokeDashoffset: {
+            value:[anime.setDashoffset, 0],
+            duration: anime.random(500,1000),
+            delay: anime.random(500,1500),
+            easing: 'easeInOutCirc'
+          },
+          opacity: {
+            value: [0, 1],
+            delay:500,
+            duration: 500,
+            easing: 'easeInOutQuad'
+          }
+        },
+          {targets: "#analysis-1 #module",
+          scale:[1,1.5],
+          duration:500,
+          delay: 500},
+          {
+            targets: "#analysis-replicable-card",
+            opacity: [0,1],
+            easing: 'easeInOutQuad',
+            duration:500
+          }],
+      [
+        {targets:'#analysis-1 #tools *',
+          strokeDashoffset: {
+            value:[anime.setDashoffset, 0],
+            duration: anime.random(500,1000),
+            delay: anime.random(500,1500),
+            easing: 'easeInOutCirc'
+          },
+          opacity: {
+            value: [0, 1],
+            delay:500,
+            duration: 500,
+            easing: 'easeInOutQuad'
+          }},
+        {
+          targets: "#analysis-hooked-card",
+          opacity: [0,1],
+          easing: 'easeInOutQuad',
+          duration:500
+        }
+        ],
+      [
+        {targets:'#analysis-1 #container *',
+          strokeDashoffset: {
+            value:[anime.setDashoffset, 0],
+            duration: anime.random(500,1000),
+            delay: anime.random(500,1500),
+            easing: 'easeInOutCirc'
+          },
+          opacity: {
+            value: [0, 1],
+            delay:500,
+            duration: 500,
+            easing: 'easeInOutQuad'
+          }
+        },
+        {targets: "#analysis-1 #module",
+          scale:[1.5, 1],
+          duration:500,
+          delay: 0},
+        {
+          targets: "#analysis-containerized-card",
+          opacity: [0,1],
+          easing: 'easeInOutQuad',
+          duration:500
+        }],
+        []
+    ]}
+    id={'analysis-1'}
+/>
+
+
+<PositionedCard
+    id={'analysis-modular-card'} x={400} y={725} width={1/4}
+    title={"Modular"}
+    extraClass={'noshadow'}
+    opacity={0.4}
+    body={"Break analyses into reusable, composable components"}
+    appearStep={2}
+/>
+
+
+<PositionedCard
+    id={'analysis-replicable-card'} x={150} y={50} width={1/4}
+    title={"Replicable"}
+    extraClass={'noshadow'}
+    opacity={0.4}
+    body={"Portable configuration separated from code"}
+    appearStep={3}
+/>
+
+<PositionedCard
+    id={'analysis-hooked-card'} x={1250} y={725} width={1/4}
+    title={"Pluggable"}
+    extraClass={'noshadow'}
+    opacity={0.4}
+    body={"Clear hooks for toolbuilders to integrate their work as plugins"}
+    appearStep={4}
+/>
+
+
+<PositionedCard
+    id={'analysis-containerized-card'} x={1000} y={50} width={7/24}
+    title={"Containerized"}
+    extraClass={'noshadow'}
+    opacity={0.4}
+    body={"Deploy and run on any computer(s) by containerizing dependencies"}
+    appearStep={5}
+/>
+
+Notes: Comparison with existing ideas like
+
+- Individual analysis libraries
+- Custom lab code
+- Fancy purpose-built dashboards
+
+---
+
+# Experimental Framework
+
+<Box width={9/10} marginLeft={"auto"} marginRight={"auto"}>
+  <Text>How can you possibly build tools for an infinite variety of preps and hardware?</Text>
+</Box>
+
+<SvgAnimator
+  id={'autopilot-logo'}
+  svgUrl={AutopilotLogo}
+  steps={[[
+    {
+      targets: '#autopilot-logo .st2',
+      strokeDashoffset: [anime.setDashoffset, 0],
+      duration: () => (anime.random(0, 3000)),
+      delay: () => (anime.random(1000, 3000)),
+      loop: true,
+      direction: 'alternate',
+      easing: 'easeInOutSine'
+    },
+    {
+      targets: '#autopilot-logo',
+      opacity:[0,1],
+      duration: 200,
+      easing: 'easeInOutSine'
+    }
+  ]]}
+  style={{top:"100px", transform:"scale(0.8)", transformOrigin:'center'}}
+/>
+
+---
+
+<SvgAnimator id={'autopilot-parallax'} svgUrl={Parallax}
+  steps={[
+      [
+        {
+          targets:'#autopilot-parallax #Layer_1 *',
+          opacity: [0,1],
+          strokeDashoffset: [anime.setDashoffset, 0],
+          duration: () => (anime.random(1000, 3000)),
+          delay: function(el){
+            let dist = (distance(el.getBBox(), {x:325, y:267})*5)+anime.random(-1000,1000);
+            return dist;
+          }
+        }
+      ],
+      [
+        {
+          targets: "#autopilot-parallax #cameras",
+          opacity: [0,1],
+          duration: 500,
+          easing: "easeInOutQuad"
+        }
+      ],
+    [
+      {
+        targets: "#autopilot-parallax #custom",
+        opacity: [0,1],
+        duration: 500,
+        easing: "easeInOutQuad"
+      }
+    ],
+    [
+      {
+        targets: "#autopilot-parallax #external",
+        opacity: [0,1],
+        duration: 500,
+        easing: "easeInOutQuad"
+      }
+    ],
+    [
+      {
+        targets: "#autopilot-parallax #imu",
+        opacity: [0,1],
+        duration: 500,
+        easing: "easeInOutQuad"
+      }
+    ]
+  ]}
+/>
+<Box height={"40px"}></Box>
+  <Heading fontFamily={"Source Serif Pro"} fontWeight={200} color={"tools"} fontSize={100}
+           fontStyle={"italic"} textAlign={"left"}>
+  p a r a l l a x i n</Heading>
+
+Notes: Important features
+
+- Integrate existing, custom hardware
+- Integrate other software libraries
+- Give space to solve common programming problems durably
+  - scikit-learn or scipy for experiments
+- Allow gradual adoption and reciprocal integration
+- Replicability
+
+---
+
+
+<SvgAnimator
+    svgUrl={Overview}
+    steps={[
+      [
+        {targets:'#rect-knowledge',
+          width:[0,750]},
+        {targets:"#overview-3 #knowledge *",
+          strokeDashoffset: [anime.setDashoffset, 0]
+        }
+      ]
+    ]}
+    id={'overview-3'}
+/>
+
+
+<PositionedHeading
+    id={'overview-data'} y={25} x={40} fontSize={50} fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={'italic'}>
+  Semantic Wikis, <br/> Communication & <br/> Governance
+</PositionedHeading>
+
+<PositionedHeading id={'overview-knowledge'} y={250} x={40} fontWeight={700}>
+  Knowledge
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data'} y={390} x={40} fontSize={50} fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={'italic'}>
+  Analytical & <br/> Experimental <br/> Frameworks
+</PositionedHeading>
+
+
+<PositionedHeading id={'overview-tools'} y={620} x={40} fontWeight={700}>
+  Tools
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data'} y={750} x={40} fontSize={50} fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={'italic'}>
+  Peer-To-Peer<br/>Federated Databases
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data'} y={970} x={40} fontWeight={700}>
+  Data
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data-label'} x={1065} y={510} light={false} fontSize={40} color={'#CF005D'}>
+  Collectivize the<br/>State of the Art
+</PositionedHeading>
+
+<PositionedHeading id={'overview-tools-label'} x={610} y={750} light={false} fontSize={40} color={'tools'}>
+  Data Management <br/>is Obsolete,<br/>
+  Deep Provenance
+</PositionedHeading>
+
+<PositionedHeading id={'overview-analysis-label'} x={1500} y={750} light={false} fontSize={40} color={'tools'}>
+  Meta-analyses<br/>are Free,<br/>
+  A Universal <br/>Folding@Home?
+</PositionedHeading>
+
+
+Notes: tools notes
+
+# Combinatoric Benefits
+
+* completely obviate the need for conversion
+* Complete replication becomes possible -- circular provenance
+* Making analytical tools
+
+# Other projects
+
+* Bonsai - good! we love it!
+* BEADL - interesting! statecharts are cool! it's a big ask to
+get everyone to fundamentally change how they express and
+do their experiments, instead we should focus on the tool side
+of thing rather than the standardization and formalization side
+of things!!
+
+# Again a design practice, not a product
+
+We need to make our programs easier to interface with one another --
+provide clearer inputs and outputs, points where other programs
+can pull and push information to our programs.
+
+BEADL this is a fundamentally diffrent approach to standardization
+what if we made it unnecessary to standardize terminology and task definitions
+by allowing people to express their task in their terms but in a
+system where their contribution ould be integrated with others?
+
+What's missing:
+
+Community structure
+
+

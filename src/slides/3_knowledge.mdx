@@ -1,0 +1,244 @@
+import { Appear, Grid, Box, FlexBox, Text, Heading, Image, Link, Quote } from 'spectacle';
+import WhatKanye from '../img/kanye-what.png'
+import VerticalLinearStepper from '../components/vertical_stepper';
+import TextAnimator from '../components/text/TextAnimator';
+import { IFrame } from '../components/basic';
+import NWBTree from '../assets/nwb_tree_noschemas.json'
+import DataFormat from '../assets/data.json';
+import DataExtension from '../assets/data_extension.json';
+import Analysis1 from '../assets/analysis_1.json'
+import Analysis2 from '../assets/analysis_2.json'
+import Tool from '../assets/tool.json'
+import WikiTheory from '../assets/wiki_theory.json'
+import WikiHardware from '../assets/wiki_hardware.json'
+import {SchemaTree, SchemaContainer} from '../components/schema'; import SvgAnimator from '../components/svg_animator';
+import SemanticEg from '../img/semantic_1-01.svg'
+import Overview from '../img/overview-01.svg'
+import PluginVideo from '../img/autopilot_plugins_short.mp4'
+import {PositionedHeading} from '../components/basic';
+
+# The Semantic Web (& Linked Data)
+
+<Box width={2/3} marginRight={'auto'} marginLeft={'auto'}>
+<Quote  fontSize={"2em"} fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={"italic"}>
+  The Semantic Web is an attempt, largely, to <strong style={{fontWeight:700}}>map large quantities of
+existing data onto a common language</strong> so that the data can be analyzed
+in ways never dreamed of by its creators.<br/>
+- https://www.w3.org/DesignIssues/Principles.html
+</Quote>
+</Box>
+
+<Box margin={"auto"}>
+<Heading>Subject :: Predicate :: Object</Heading>
+<Heading fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={"italic"}>Person :: HasName :: Jonny</Heading>
+</Box>
+
+---
+
+<FlexBox flexDirection={'row'} justifyContent={'flex-start'} marginLeft={"50px"}>
+<Text fontFamily={'monospace'} fontSize={"60pt"} fontWeight={'bold'} style={{marginRight:"50px", color: "#ff0000", filter: "drop-shadow(30px 30px 0px #CCCCCC"}}>
+  A 2-real example
+</Text>
+  <FlexBox flexDirection={'column'} alignItems={'flex-start'}>
+<Text id='semantic-eg-description-1'  fontSize={"40pt"} fontFamily={"headerSerif"}>"Rumbly gets lonely during the day"</Text>
+<Text id='semantic-eg-description-2'  fontSize={"40pt"} fontFamily={"headerSerif"}>"jk she gets played with so much"</Text>
+  </FlexBox>
+</FlexBox>
+
+<SvgAnimator
+  stepIndex={1}
+  id={'semantic-example'}
+  svgUrl={SemanticEg}
+  steps={
+      [
+          [
+            {
+              targets:"#semantic-example #jonny",
+              opacity:[0,1],
+              easing: 'easeOutQuad'
+            }
+          ],
+        [
+          {
+            targets:"#semantic-example #job",
+            opacity:[0,1],
+            easing: 'easeOutQuad'
+          }
+        ],
+        [
+          {
+            targets:"#semantic-example #cat",
+            opacity:[0,1],
+            easing: 'easeOutQuad'
+          }
+        ],
+        [
+          {
+            targets:"#semantic-eg-description-1",
+            opacity:[0,1],
+            easing: 'easeOutQuad'
+          }
+        ],
+        [
+          {
+            targets:"#semantic-example #coop",
+            opacity:[0,1],
+            easing: 'easeOutQuad'
+          },
+          {
+            targets:"#semantic-eg-description-2",
+            opacity:[0,1],
+            easing: 'easeOutQuad'
+          }
+        ]
+      ]
+  }
+/>
+
+---
+
+
+# Standardization is Political
+
+
+
+<Box width={2/3} marginLeft={"auto"} marginRight={"auto"}>
+  <Text>The plan *can't* be to get everyone to use the same thing</Text>
+  <Text fontFamily={"monospace"} fontSize={14} color={"#ff0000"}>( ha i fooled ya on the "just assume standardization is easy" )</Text>
+  <Card elevation={1} style={{marginTop:"50px"}}>
+    <CardContent>
+      <Quote  fontSize={"2em"} fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={"italic"}>
+        Participants describe the individual sequence database
+        systems as if they were shadows, poor representations of a
+        widely-agreed-upon ideal. [...] Instead, <strong style={{fontWeight:700}}>each decision about the implementation of a particular
+        database system plants a stake for a community boundary.</strong>
+        The databases are not so much imperfect copies of an ideal as
+        they are arguments about what the ideal Database should be.
+        <br/><br/>
+        In the end, however, the system was so tailored to a specific
+        set of research questions that the collection of data,
+        the set of tools, and even the social organization of the
+        project had to be significantly changed. ...
+        <br/><br/>While the database development projects had begun by working
+        together, in the end they were unable to collaborate. <strong style={{fontWeight:700}}>The system
+        that was supposed to tie these groups together could not be
+        shielded from the controversies that formed the boundaries between
+        the communities of practice.</strong>
+      </Quote>
+      <Text fontSize={30}>-Bietz & Lee (2009)
+        <Link fontSize={30} href={"https://doi.org/10.1007/978-1-84882-854-4_15"}>
+          "Collaboration in Metagenomics"</Link></Text>
+    </CardContent>
+  </Card>
+</Box>
+
+
+---
+
+<Heading textAlign={'left'} color={"tools"} fontWeight={200} fontStyle={"italic"} fontSize={50}>
+  Have you ever had a dream
+</Heading>
+<Text fontFamily={'headerSerif'} fontSize={15}>
+that you, um, you had, your, you you could, you’ll do, you could you, you want so much
+</Text>
+<Box marginLeft={"100px"}>
+  <Heading lineHeight={0.9} textAlign={'left'} color={"tools"} fontWeight={200} fontStyle={"italic"} fontSize={50}>
+  you could link anything?
+</Heading>
+</Box>
+
+<SchemaContainer>
+  <SchemaTree x={120} y={400} width={166*3} height={500} fillDark={"#2f0987"} fillLight={"#784ed2"} srcJson={DataFormat}/>
+  <SchemaTree x={120} y={700} width={166*3} height={500} fillDark={"#2f0987"} fillLight={"#784ed2"} srcJson={DataExtension}/>
+  <SchemaTree x={600} y={850} width={166*4} height={500} fillDark={"#CF005D"} fillLight={"#ef59a4"} srcJson={Tool}/>
+  <SchemaTree x={600} y={250} width={166*4} height={500} fillDark={"#CF005D"} fillLight={"#ef59a4"} srcJson={Analysis1}/>
+  <SchemaTree x={600} y={200} width={166*1.6} height={500} fillDark={"#CF005D"} fillLight={"#ef59a4"} srcJson={Analysis2}/>
+  <SchemaTree x={1100} y={500} width={166*4.5} height={500} fillDark={"#2a66c3"} fillLight={"#45B6D9"} srcJson={WikiHardware}/>
+  <SchemaTree x={1300} y={100} width={166*3} height={500} fillDark={"#2a66c3"} fillLight={"#45B6D9"} srcJson={WikiTheory}/>
+</SchemaContainer>
+
+---
+
+# Multimodal Knowledge Integration
+
+<Box width={2/3} marginLeft={'auto'} marginRight={'auto'} height={"100%"}>
+  <Heading fontSize={'h3'} textAlign={'center'} color={"tools"} fontWeight={200} fontStyle={"italic"}>
+    Eg. the Autopilot Wiki - wiki.auto-pi-lot.com
+  </Heading>
+  <Box flexDirection={'column'} height={"100%"}>
+    <IFrame paper={false} flexGrow={4} src={"https://wiki.auto-pi-lot.com/index.php/Autopilot_Wiki"}/>
+  </Box>
+</Box>
+
+---
+
+
+<video controls loop>
+  <source src={PluginVideo} type={"video/mp4"}/>
+</video>
+
+
+---
+
+
+<SvgAnimator
+    svgUrl={Overview}
+    steps={[
+    ]}
+    id={'overview-4'}
+/>
+
+
+<PositionedHeading
+    id={'overview-data'} y={25} x={40} fontSize={50} fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={'italic'}>
+  Semantic Wikis, <br/> Communication & <br/> Governance
+</PositionedHeading>
+
+<PositionedHeading id={'overview-knowledge'} y={250} x={40} fontWeight={700}>
+  Knowledge
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data'} y={390} x={40} fontSize={50} fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={'italic'}>
+  Analytical & <br/> Experimental <br/> Frameworks
+</PositionedHeading>
+
+
+<PositionedHeading id={'overview-tools'} y={620} x={40} fontWeight={700}>
+  Tools
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data'} y={750} x={40} fontSize={50} fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={'italic'}>
+  Peer-To-Peer<br/>Federated Databases
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data'} y={970} x={40} fontWeight={700}>
+  Data
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data-label'} x={1000} y={450} light={false} fontSize={60} fontWeight={600}>
+  A New Kind Of <br/>Scientific<br/> Consensus
+</PositionedHeading>
+
+<PositionedHeading id={'overview-tools-label'} x={610} y={750} light={false} fontSize={40}>
+  Data Management <br/>is Obsolete,<br/>
+  Deep Provenance
+</PositionedHeading>
+
+<PositionedHeading id={'overview-analysis-label'} x={1500} y={750} light={false} fontSize={40}>
+  Meta-analyses<br/>are Free,<br/>
+  A Universal <br/>Folding@Home?
+</PositionedHeading>
+
+<PositionedHeading id={'overview-analysis-label'} x={610} y={200} light={false} fontSize={40}>
+  Bridged Technical<br/>Knowledge & Practice,<br/>
+  Replication is<br/>Possible
+</PositionedHeading>
+
+<PositionedHeading id={'overview-analysis-label'} x={1500} y={200} light={false} fontSize={40}>
+  Dissolve the Paper as <br/>Locus of Interpretation,<br/>
+  Cumulative Theories<br/>Built on All Data
+</PositionedHeading>
+
+
+
+
