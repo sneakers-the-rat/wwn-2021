@@ -1,0 +1,23 @@
+import task from '../assets/minimal_task.txt';
+import {Heading, Text, Quote, Appear, Link, Grid, Box, FlexBox, SlideContext, Image, UnorderedList, ListItem, CodePane} from 'spectacle'
+import funky from 'react-syntax-highlighter/dist/cjs/styles/prism/funky'; import {Code} from '@material-ui/icons';
+
+
+# Higher-Level Task Class
+
+  <Box width={2/3} marginLeft={'auto'} marginRight={'auto'}
+  >
+  <CodePane language={"python"} theme={funky}
+            highlightRanges={[
+              [10,15],[17,19],[21,25],[27,35],[41,42],[44,47],[49,58],60,62,[65,70]
+            ]}>
+  {task}
+  </CodePane></Box>
+
+---
+
+# Script oriented task creation...
+
+(todo, still refining this idea, see examples in the parallax plugin <3)
+
+

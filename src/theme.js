@@ -25,7 +25,8 @@ export const spectacle_theme = {
     notesColor: '#ffffff'
   },
   fonts: {
-    header: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+    // header: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+    header: '"Source Serif Pro", "EB Garamond", serif',
     headerSerif: '"Source Serif Pro", "EB Garamond", serif',
     quote: '"Source Serif Pro", "EB Garamond", serif',
     text: '"Helvetica Neue", Helvetica, Arial, sans-serif',
@@ -33,9 +34,9 @@ export const spectacle_theme = {
     titleHeader: '"Fira Code", "Helvetica Neue", Helvetica, Arial, sans-serif',
   },
   fontSizes: {
-    h1: '72px',
-    h2: '64px',
-    h3: '56px',
+    h1: '80px',
+    h2: '72px',
+    h3: '64px',
     text: '44px',
     monospace: '20px',
     notesSize: '20px'

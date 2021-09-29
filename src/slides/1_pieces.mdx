@@ -1,0 +1,161 @@
+import {Heading, Text, Quote, Appear, Link, Grid, Box, FlexBox, SlideContext, Image, UnorderedList, ListItem, CodePane} from 'spectacle'
+import basicProg from '../assets/cliffs_basic_program.txt';
+import imuCode from '../assets/imu.txt'
+import funky from 'react-syntax-highlighter/dist/cjs/styles/prism/funky'; import {Code} from '@material-ui/icons';
+import platform from '../assets/platform.txt'
+
+# Simple stuff...
+  <Box width={2/3} marginLeft={'auto'} marginRight={'auto'}>
+    <Text>GPIOs...</Text>
+<CodePane language={"python"} theme={funky}>
+{`from autopilot.hardware.gpio import Digital_Out
+led = Digital_Out(pin=7)
+\n\
+# turn it on and off!
+led.set(1)
+led.set(0)
+# or in a way that's sensitive to polarity of device
+led.turn('on')
+`}
+</CodePane>
+  <Text>Cameras...</Text>
+    <CodePane language={"python"} theme={funky}
+    highlightRanges={[
+        [3,5],[7,10]
+    ]}>
+      {`
+from autopilot.hardware.cameras import PiCamera
+\n\
+# init cam with parameters, change with properties
+cam = PiCamera(fps=30, exposure=0.2)
+cam.fps = 60
+\n\
+# same API for all cameras
+cam.write('test_video.mp4')
+cam.queue()
+cam.stream(to='my_friend')
+\n\
+# start capturing, writing, queuing, and streaming
+cam.capture(timed=10)
+`}
+    </CodePane>
+  </Box>
+
+---
+
+# Use it with DLC-Live!
+
+<Box width={2/3} marginLeft={'auto'} marginRight={'auto'}>
+    <CodePane language={"python"} theme={funky}
+    highlightRanges={[1,[3,4],[5,7],[10,11]]}>
+{`
+from autopilot import transform as t
+\n\
+# model zoo or local models!
+dlc = t.image.DLC(model_zoo='full_human')
+\n\
+# chain transforms together! Select the x position of the wrist!
+dlc += t.selection.DLCSlice(select=('wrist1',))
+dlc += t.selection.Slice(0)
+\n\
+# process an image from the picamera and process it!
+x_pos = dlc.process(cam.q.get()[1])
+`}
+    </CodePane>
+  </Box>
+
+---
+# Off-The-Shelf Hardware:
+## 9-DOF I2C Motion Sensor
+
+<Box width={2/3} marginLeft={'auto'} marginRight={'auto'}>
+  <CodePane language={"python"} theme={funky}
+  highlightRanges={[1,[6,7],[9,10]]}>
+{`
+from autopilot.hardware.i2c import I2C_9DOF
+\n\
+# initialize (all params are optional for this one)
+sensor = I2C_9DOF(accel=True, gyro=True, gyro_hpf=0.2)
+\n\
+# pull measurements
+accel, gyro, mag = sensor.acceleration, sensor.gyro, sensor.magnetic
+\n\
+# use embedded autopilot transforms to get roll, pitch
+rotation = sensor.rotation
+`}
+  </CodePane>
+  <Text>Close up...</Text>
+  <CodePane language={"python"} theme={funky}
+            highlightRanges={[1,[64,69],[116,120],[176,182],[205,207],[237,244],[430,439],[451,461],[463,466],[480,492]]}>
+  {imuCode}
+  </CodePane>
+</Box>
+
+Notes: on imu
+- set constantsget registers from datasheet
+
+---
+
+# Custom Hardware:
+## "Here's 350 lines of BASIC, have fun."
+<Box width={2/3} marginLeft={'auto'} marginRight={'auto'}
+     >
+  <CodePane language={"basic"} theme={funky}
+            highlightRanges={[
+                1,[50,60],[200,210],[300,310]
+            ]}>
+    {basicProg}
+  </CodePane>
+</Box>
+
+---
+
+# Custom Hardware:
+## Wrap it up...
+
+<Box width={2/3} marginLeft={'auto'} marginRight={'auto'}
+>
+  <CodePane language={"python"} theme={funky}
+            highlightRanges={[
+              11,[93,100],247,[277,282],[306,310],[311,313],[322,323],[325,333],339,[335,337],[468,473],[498,501]
+            ]}>
+    {platform}
+  </CodePane>
+</Box>
+
+---
+
+# Custom Hardware:
+## Abstraction at last
+
+<Box width={2/3} marginLeft={'auto'} marginRight={'auto'}
+>
+  <CodePane language={"python"} theme={funky}
+            highlightRanges={[
+              3, [8,11], [13,16]
+            ]}>
+{`
+import autopilot
+import numpy as np
+platform_class = autopilot.get('hardware', 'Parallax_Platform')
+\n\
+# initialize!
+platform = platform_class()
+\n\
+# raise the center two rows of columns to max height
+height = np.zeros((6,6), dtype=int)
+height[2:4,:] = platform.MAX_HEIGHT
+platform.height = height
+\n\
+# velocity mode!
+platform.move_mode = platform.move_modes.VELOCITY
+platform.velocity = 1 # mm/s
+platform.velocity = 0
+`}
+  </CodePane>
+</Box>
+
+
+
+
+

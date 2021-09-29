@@ -53,6 +53,17 @@ module.exports = {
       {
         test: /\.(png|j?g|svg|gif|mp3|mp4)?$/,
         use: [require.resolve('file-loader')]
+      },
+      {
+        test: /\.txt$/i,
+        use: [
+          {
+            loader: 'raw-loader',
+            options: {
+              esModule: false
+            }
+          }
+        ]
       }
     ]
   },
@@ -60,7 +71,7 @@ module.exports = {
     // new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
       template: path.resolve( __dirname, '../public/index.html' ),
-      title: "Decentralized Infrastructure for Neuroscience"
+      title: "Autopilot v0.4.0 - Worldwide Neuro"
     }),
     new webpack.ProvidePlugin({
       process: 'process/browser',

@@ -18,18 +18,48 @@ import styled from '@material-ui/styles/styled/styled'
 import TOC from './components/toc'
 
 import slides_intro, {notes as notes_intro} from './slides/0_intro.mdx';
+import slides_pieces, {notes as notes_pieces} from './slides/1_pieces.mdx';
+import slides_task, {notes as notes_task} from './slides/2_task.mdx';
+import slides_wiki, {notes as notes_wiki} from './slides/3_wiki.mdx';
+import slides_future, {notes as notes_future} from './slides/4_future.mdx';
 import {material_theme, spectacle_theme, useMuiStyles} from './theme';
 
 const StyledNotes = styled(Notes)({
   color: 'background'
 })
 
+console.log('raw slides', slides_intro, slides_intro.map((slide) => (console.log(slide, (<slide></slide>)))))
+// have to declare some metadata here bc can't figure out how to export variables!
 const toc_slides = [
   {
     name: 'intro',
     display: 'Introduction',
     slides: slides_intro,
     notes: notes_intro
+  },
+  {
+    name: 'pieces',
+    display: 'Pieces',
+    slides: slides_pieces,
+    notes: notes_pieces
+  },
+  {
+    name: 'task',
+    display: 'Task',
+    slides: slides_task,
+    notes: notes_task
+  },
+  {
+    name: 'wiki',
+    display: 'Wiki',
+    slides: slides_wiki,
+    notes: notes_wiki
+  },
+  {
+    name: 'future',
+    display: 'Future',
+    slides: slides_future,
+    notes: notes_future
   },
 ]
 
