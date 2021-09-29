@@ -3,6 +3,7 @@ import basicProg from '../assets/cliffs_basic_program.txt';
 import imuCode from '../assets/imu.txt'
 import funky from 'react-syntax-highlighter/dist/cjs/styles/prism/funky'; import {Code} from '@material-ui/icons';
 import platform from '../assets/platform.txt'
+import hellNaw from '../img/hell_naw.mp4'
 
 # Simple stuff...
   <Box width={2/3} marginLeft={'auto'} marginRight={'auto'}>
@@ -47,7 +48,7 @@ cam.capture(timed=10)
 
 <Box width={2/3} marginLeft={'auto'} marginRight={'auto'}>
     <CodePane language={"python"} theme={funky}
-    highlightRanges={[1,[3,4],[5,7],[10,11]]}>
+    highlightRanges={[1,[3,4],[6,8],[10,11]]}>
 {`
 from autopilot import transform as t
 \n\
@@ -63,6 +64,10 @@ x_pos = dlc.process(cam.q.get()[1])
 `}
     </CodePane>
   </Box>
+
+<Text fontSize={"26pt"} style={{position:"absolute", bottom:"20px"}}>
+Kane, G. A., Lopes, G., Saunders, J. L., Mathis, A., & Mathis, M. W. (2020). Real-time, low-latency closed-loop feedback using markerless posture tracking. ELife, 9, e61909. https://doi.org/10.7554/eLife.61909
+</Text>
 
 ---
 # Off-The-Shelf Hardware:
@@ -102,7 +107,7 @@ Notes: on imu
      >
   <CodePane language={"basic"} theme={funky}
             highlightRanges={[
-                1,[50,60],[200,210],[300,310]
+                1,[300,310]
             ]}>
     {basicProg}
   </CodePane>
@@ -155,6 +160,11 @@ platform.velocity = 0
   </CodePane>
 </Box>
 
+---
+
+<video controls loop style={{width:"100%", margin:"auto"}}>
+  <source src={hellNaw} type={"video/mp4"}/>
+</video>
 
 
 

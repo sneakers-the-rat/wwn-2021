@@ -1,13 +1,128 @@
+import { Appear, Grid, Box, FlexBox, Text, Heading, Image, Link, Quote } from 'spectacle'
+import SvgAnimator from '../components/svg_animator';
+import Overview from '../img/overview-01.svg'
+import {PositionedHeading} from '../components/basic';
+
+
+<SvgAnimator
+    svgUrl={Overview}
+    steps={[
+    ]}
+    id={'overview-4'}
+/>
+
+
+<PositionedHeading
+    id={'overview-data'} y={25} x={40} fontSize={50} fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={'italic'}>
+  Semantic Wikis, <br/> Communication & <br/> Governance
+</PositionedHeading>
+
+<PositionedHeading id={'overview-knowledge'} y={250} x={40} fontWeight={700}>
+  Knowledge
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data'} y={390} x={40} fontSize={50} fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={'italic'}>
+  Analytical & <br/> Experimental <br/> Frameworks
+</PositionedHeading>
+
+
+<PositionedHeading id={'overview-tools'} y={620} x={40} fontWeight={700}>
+  Tools
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data'} y={750} x={40} fontSize={50} fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={'italic'}>
+  Peer-To-Peer<br/>Federated Databases
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data'} y={970} x={40} fontWeight={700}>
+  Data
+</PositionedHeading>
+
+<PositionedHeading id={'overview-data-label'} x={1000} y={450} light={false} fontSize={60} fontWeight={600}>
+  A New Kind Of <br/>Scientific<br/> Consensus
+</PositionedHeading>
+
+<PositionedHeading id={'overview-tools-label'} x={610} y={750} light={false} fontSize={40}>
+  Data Management <br/>is Obsolete,<br/>
+  Deep Provenance
+</PositionedHeading>
+
+<PositionedHeading id={'overview-analysis-label'} x={1500} y={750} light={false} fontSize={40}>
+  Meta-analyses<br/>are Free,<br/>
+  A Universal <br/>Folding@Home?
+</PositionedHeading>
+
+<PositionedHeading id={'overview-analysis-label'} x={610} y={200} light={false} fontSize={40}>
+  Bridged Technical<br/>Knowledge & Practice,<br/>
+  Replication is<br/>Possible
+</PositionedHeading>
+
+<PositionedHeading id={'overview-analysis-label'} x={1500} y={200} light={false} fontSize={40}>
+  Dissolve the Paper as <br/>Locus of Interpretation,<br/>
+  Cumulative Theories<br/>Built on All Data
+</PositionedHeading>
+
+
+
+---
+
 # What about the future?
 
 - v0.5.0 - type and inheritance system. Unify everything!
-  - swarm ids
-  - networking everywhere!
-  - gently enforced & interactive api!
-- Finish the plugin structure!
 - Self-healing Networking!
+- Finish the plugin structure!
+- React-like hook interface
 - NWB Direct output!
 - Interfaces with Bonsai & others!
+
+---
+
+# Gratitude
+
+<Grid gridTemplateColumns={"1fr 1fr"}>
+  <FlexBox flexDirection={"column"} alignItems={'flex-start'} justifyContent={'flex-start'}>
+    <Text fontWeight={"bold"}>Lab:</Text>
+    <Text fontSize={"20pt"}>Mike Wehr</Text>
+    <Text fontSize={"20pt"}>Lucas Ott</Text>
+    <Text fontSize={"20pt"}>Tillie Morris</Text>
+    <Text fontSize={"20pt"}>Brynna Paros</Text>
+    <Text fontSize={"20pt"}></Text>
+    <Text fontWeight={"bold"}>Committee:</Text>
+    <Text fontSize={"20pt"}>Santiago Jaramillo</Text>
+    <Text fontSize={"20pt"}>Matt Smear</Text>
+    <Text fontSize={"20pt"}></Text>
+    <Text fontWeight={"bold"}>Funding:</Text>
+    <Text fontSize={"20pt"}>NSF Graduate Research Fellowship No. 1309047</Text>
+  </FlexBox>
+  <FlexBox flexDirection={"column"} alignItems={'flex-start'}>
+    <Text fontWeight={"bold"}>v0.4.0 Contributors!</Text>
+    <Text fontSize={"20pt"}>Chris Rodgers</Text>
+    <Text fontSize={"20pt"}>Arne Meyer</Text>
+    <Text fontSize={"20pt"}>Mikkel Roald-Arbøl</Text>
+    <Text fontSize={"20pt"}>David Robbe</Text>
+    <Text fontSize={"20pt"}>Anonymous Discussion Board Poster!</Text>
+    <Text fontWeight={"bold"}>Collaborators & Wisdom-givers:</Text>
+    <Text fontSize={"20pt"}>Gonçalo Lopes</Text>
+    <Text fontSize={"20pt"}>Mackenzie Mathis</Text>
+    <Text fontSize={"20pt"}>Lauren E. Wool</Text>
+    <Text fontSize={"20pt"}>Gabi Hayden</Text>
+    <Text fontSize={"20pt"}>Mark Laubach & Open Behavior Team</Text>
+    <Text fontSize={"20pt"}>Os Keyes</Text>
+    <Text fontSize={"20pt"}>Avery Everhart</Text>
+    <Text fontSize={"20pt"}>Eartha Mae Guthman</Text>
+    <Text fontSize={"20pt"}>Olivia Guest</Text>
+    <Text fontSize={"20pt"}>NWB & DANDI teams</Text>
+    <Text fontSize={"20pt"}>Kris Chauvin</Text>
+    <Text fontSize={"20pt"}>Phil Parker</Text>
+    <Text fontSize={"20pt"}>Chris Rogers</Text>
+    <Text fontSize={"20pt"}>Danny Mclanahan</Text>
+    <Text fontSize={"20pt"}>Ralph Emilio Peterson</Text>
+    <Text fontSize={"20pt"}>The Emerging ONICE team</Text>
+    <Text fontSize={"20pt"}>The Janet Smith House, especially Leslie Harka</Text>
+    <Text fontSize={"20pt"}>Rumbly Tumbly Lawnmower</Text>
+  </FlexBox>
+
+</Grid>
 
 ---
 
@@ -17,6 +132,3 @@
   - https://jon-e.net/autopilot_brainhaq2019/#/15
   - https://jon-e.net/autopilot_brainhaq2019/#/16
 
----
-
-# Thanks!!!

@@ -1,4 +1,11 @@
-# What do we have now...
+import { Appear, Grid, Box, FlexBox, Text, Heading, Image, Link, Quote } from 'spectacle';
+import SvgAnimator from '../components/svg_animator';
+import SemanticEg from '../img/semantic_1-01.svg'
+import { IFrame } from '../components/basic';
+
+<div className={'blankslide'}></div>
+
+Notes: What do we have now...
 
 - if autopilot is trying to be a glue between isolated tools...
 - what about the glue between the technical knowledge of their use?
@@ -6,21 +13,143 @@
 
 ---
 
-# Parallax Plugin Example
 
+# The Semantic Web (& Linked Data)
+
+<Box width={2/3} marginRight={'auto'} marginLeft={'auto'}>
+  <Quote  fontSize={"2em"} fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={"italic"}>
+    The Semantic Web is an attempt, largely, to <strong style={{fontWeight:700}}>map large quantities of
+    existing data onto a common language</strong> so that the data can be analyzed
+    in ways never dreamed of by its creators.<br/>
+    - https://www.w3.org/DesignIssues/Principles.html
+  </Quote>
+</Box>
+
+<Box margin={"auto"}>
+  <Heading>Subject :: Predicate :: Object</Heading>
+  <Heading fontFamily={"Source Serif Pro"} fontWeight={200} fontStyle={"italic"}>Person :: HasName :: Jonny</Heading>
+</Box>
+
+---
+
+<FlexBox flexDirection={'row'} justifyContent={'flex-start'} marginLeft={"50px"}>
+  <Text fontFamily={'monospace'} fontSize={"60pt"} fontWeight={'bold'} style={{marginRight:"50px", color: "#ff0000", filter: "drop-shadow(30px 30px 0px #CCCCCC"}}>
+    A 2-real example
+  </Text>
+  <FlexBox flexDirection={'column'} alignItems={'flex-start'}>
+    <Text id='semantic-eg-description-1'  fontSize={"40pt"} fontFamily={"headerSerif"}>"Rumbly gets lonely during the day"</Text>
+    <Text id='semantic-eg-description-2'  fontSize={"40pt"} fontFamily={"headerSerif"}>"jk she gets played with so much"</Text>
+  </FlexBox>
+</FlexBox>
+
+<SvgAnimator
+    stepIndex={1}
+    id={'semantic-example'}
+    svgUrl={SemanticEg}
+    steps={
+      [
+        [
+          {
+            targets:"#semantic-example #jonny",
+            opacity:[0,1],
+            easing: 'easeOutQuad'
+          }
+        ],
+        [
+          {
+            targets:"#semantic-example #job",
+            opacity:[0,1],
+            easing: 'easeOutQuad'
+          }
+        ],
+        [
+          {
+            targets:"#semantic-example #cat",
+            opacity:[0,1],
+            easing: 'easeOutQuad'
+          }
+        ],
+        [
+          {
+            targets:"#semantic-eg-description-1",
+            opacity:[0,1],
+            easing: 'easeOutQuad'
+          }
+        ],
+        [
+          {
+            targets:"#semantic-example #coop",
+            opacity:[0,1],
+            easing: 'easeOutQuad'
+          },
+          {
+            targets:"#semantic-eg-description-2",
+            opacity:[0,1],
+            easing: 'easeOutQuad'
+          }
+        ]
+      ]
+    }
+/>
+
+---
+
+# Semantic Plugin System!
+
+<Box width={2/3} marginLeft={'auto'} marginRight={'auto'} height={"100%"}>
+  <Heading fontSize={'30pt'} textAlign={'center'} color={"tools"} fontWeight={200} fontStyle={"italic"}>
+    beholde the Autopilot Wiki - wiki.auto-pi-lot.com
+  </Heading>
+  <Box flexDirection={'column'} height={"100%"}>
+    <IFrame paper={true} flexGrow={4} src={"https://wiki.auto-pi-lot.com/index.php/Plugin:Parallax"}/>
+  </Box>
+</Box>
+
+Notes: note
 - no need for PRs, make plugins available immediately
 - make use of partial/off target work
 - namespacing todo
 
 ---
 
-# Build Guide
+# Blend Programmatic & Contextual Knowledge!
+
+<Box width={2/3} marginLeft={'auto'} marginRight={'auto'} height={"100%"}>
+  <Heading fontSize={'30pt'} textAlign={'center'} color={"tools"} fontWeight={200} fontStyle={"italic"}>
+    With Thanks to Ralph Emilio Peterson
+  </Heading>
+  <Box flexDirection={'column'} height={"100%"}>
+    <IFrame paper={true} flexGrow={4} src={"https://wiki.auto-pi-lot.com/index.php/HiFiBerry_Amp2"}/>
+  </Box>
+</Box>
 
 ---
 
-# Sound Card Example
+# Densely-Linked Guides!
+
+
+<Box width={2/3} marginLeft={'auto'} marginRight={'auto'} height={"100%"}>
+  <Heading fontSize={'30pt'} textAlign={'center'} color={"tools"} fontWeight={200} fontStyle={"italic"}>
+    Instead of monolithic PDFs, separable, reusable components
+  </Heading>
+  <Box flexDirection={'column'} height={"100%"}>
+    <IFrame paper={true} flexGrow={4} src={"https://wiki.auto-pi-lot.com/index.php/Autopilot_Behavior_Box"}/>
+  </Box>
+</Box>
+
 
 ---
 
-# Demo of how the wiki works
+# Collective Curation
+
+<Box width={2/3} marginLeft={'auto'} marginRight={'auto'} height={"100%"}>
+  <Heading fontSize={'30pt'} textAlign={'center'} color={"tools"} fontWeight={200} fontStyle={"italic"}>
+    And my ongoing mission to not be a BDFL
+  </Heading>
+  <Box flexDirection={'column'} height={"100%"}>
+    <IFrame paper={true} flexGrow={4} src={"https://wiki.auto-pi-lot.com/index.php/Meta"}/>
+  </Box>
+</Box>
+
+
 
